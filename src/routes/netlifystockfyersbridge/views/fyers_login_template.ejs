@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+	 <link  type="text/css" rel="stylesheet" href="/bootcss/bootstrap.min.css"/>
+	  <script type="text/javascript" src="/jquery/jquery.min.js" crossorigin="anonymous"></script>
+   
+    <!-- BUTTON CLICKS NEED tHIS -->
+    <script src="/asset/plugins/jquery/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+     <script src="/asset/plugins/jquery-ui/jquery-ui.min.js"></script>	
+     <script  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>	
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+	  <script type="text/javascript" src="/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/asset/css/uploadaddhar.css">
+ <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.2.5/dist/dbr.js"
+      data-productKeys="t0068NQAAACwiu6aXm/RiDD7y6oAZlmMZOA5c6n1Gz8g3RyCV8qM7FcX1Yv8iY1GRN+ZerYU/hXcIeg2CIfAJzhsms30pQ40="></script>
+   <!-- https://jsfiddle.net/bootstrapious/8w7a50n2 -->
+
+   <link type="text/css" rel="Stylesheet" href="/asset/css/style_new.css" />
+     <script type="text/javascript">
+      $(document).ready(function () {
+     
+        console.log("fYER LOGGED IN " )
+           // PROCEED ACCESS BUTTNO 
+      $('#proceedAccessBtn').click(function(){
+        var selText = $('#auth_code').text().trim();
+        console.log("... FYERS ACCESS QUOTED initated "  );
+        var   parameters = [] ;
+        parameters["auth_code"] =`${selText}`;
+        var query = "auth_code="+selText;
+        //window.location.assign( "https://localhost:56322/fyersgetaccess?"+query);
+         window.location.assign( "http://fyers-stocks-node-express-render.onrender.com/.netlify/functions/netlifystockfyersbridge/api/fyersgetaccess?"+query);
+       // window.location.assign( "https://store-stocks.netlify.app/.netlify/functions/netlifystockfyersbridge/api/fyersgetaccess?"+query);
+            // DO GET
+        /*$.ajax({
+            type : "GET",
+            url : "https://localhost:56322/",
+            contentType : "application/json",
+            // data : {platformAjax:platform, genreAjax:genre},
+            data : parameters,
+            dataType : "json",
+            
+        success: async function(data, textStatus, jqXHR) {
+            if(data.Success)		
+                    { console.log("moeny flow records " +JSON.stringify(data.Success.length)); }
+            try {
+                var dummyVar =  JSON.stringify(data)  ;
+                $("#userdata > tbody").html("");
+                refreshOPENINTEREST(dummyVar);
+                } catch(error) {
+                    console.log("moeny flow Data unable to PARSE " +JSON.stringify(error));
+                }
+            }
+            })
+            */
+    	});
+
+
+
+
+     });
+    
+	</script>
+      <style type="text/css">
+        .borderbottom
+                {
+                        border-bottom:1px solid #dbdbdb;
+            }
+            @media (min-width: 1200px) {
+        .container {
+            max-width: 100%;
+        }
+        .input-sm{ font-size:.8rem; }
+    }
+    </style>
+</head>
+
+<body>
+   <div class="container py-5">
+                <h1> FYERS LOGGED IN </h1>
+
+                <div> 
+                        <p>     <%=s%></p>
+                        <p>     <%=code%></p>
+                        <p id="auth_code">     <%=auth_code%></p>
+
+                        <button  id="proceedAccessBtn" type="button" class="btn btn-primary btn-block mt-4">Proceed Access</button>
+                </div>
+    </div>
+ </form>
+</div>
+
+	<!-- 
+		for (var i=0; (i+1+chunk) < lenghSt ; i+=chunk) {	array2 += array1.substring(i, i+chunk) + " \n"; console.log("array2 "+array2);  }
+	-->
+
+
+</body>
+</html>
+         

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+	 <link  type="text/css" rel="stylesheet" href="/bootcss/bootstrap.min.css"/>
+	  <script type="text/javascript" src="/jquery/jquery.min.js" crossorigin="anonymous"></script>	
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+	  <script type="text/javascript" src="/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+          <!-- Bootstrap 4
+	<script src="/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/asset/css/uploadaddhar.css">
+ <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.2.5/dist/dbr.js"
+      data-productKeys="t0068NQAAACwiu6aXm/RiDD7y6oAZlmMZOA5c6n1Gz8g3RyCV8qM7FcX1Yv8iY1GRN+ZerYU/hXcIeg2CIfAJzhsms30pQ40="></script>
+   <!-- https://jsfiddle.net/bootstrapious/8w7a50n2 -->
+
+   <link type="text/css" rel="Stylesheet" href="/asset/css/style_new.css" />
+     <script type="text/javascript">
+  
+   
+	</script>
+      <style type="text/css">
+        .borderbottom
+                {
+                        border-bottom:1px solid #dbdbdb;
+            }
+            @media (min-width: 1200px) {
+        .container {
+            max-width: 100%;
+        }
+        .input-sm{ font-size:.8rem; }
+    }
+    </style>
+</head>
+
+<body>
+<div class="container py-5">
+<h1> FYERS QUOTES </h1>
+
+<div class="container trade-content-box" style="display:inline">
+ <div class="row">  <!-- MAIN ROW-->
+  <div class="row"> <!-- INNER ROW -->
+   <!--profile --> 
+   <div class="card-body">
+    <div class="tab-content p-0">
+      <!--  Morris chart - Sales -->
+      <div class="chart tab-pane active" id="revenue-chart" style="position: 'relative', height: 300">
+        
+        <ul>
+            <% data.forEach(elem=> { %>
+
+                <li> <% console.table(elem) %>
+                </li>
+                <% }); %>
+        </ul>
+      
+        <!--  <canvas id="revenue-chart-canvas" height={300} style="height: 300" />  -->                       
+      </div>
+      <div className="chart tab-pane" id="sales-chart" style="position: 'relative', height: 300">
+        <!-- <canvas id="sales-chart-canvas" height={300} style="height: 300" />      -->                   
+      </div>  
+    </div>
+  </div><!--  /.card-body -->
+  <div className="card-body">
+     <!--<canvas className="chart" id="line-chart" style="min-height: 250, height: 250, max-height: 250, max-width: '100%'"/> -->
+  </div>  
+
+  </div>  <!-- INNER ROW -->
+ </div><!-- MAIN ROW-->
+</div>
+</div>
+ </form>
+</div>
+
+	<!-- 
+		for (var i=0; (i+1+chunk) < lenghSt ; i+=chunk) {	array2 += array1.substring(i, i+chunk) + " \n"; console.log("array2 "+array2);  }
+	-->
+
+
+</body>
+</html>
+         

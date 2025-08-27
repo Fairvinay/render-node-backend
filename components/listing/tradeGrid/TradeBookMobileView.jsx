@@ -1,0 +1,185 @@
+// components/MobileView.tsx
+import React, {Suspense, useEffect , useState,useMemo} from "react";
+import { CommonConstants } from "@/utils/constants";
+import { StorageUtils } from "@/libs/cache"; 
+import tradeBook from './tradesample.json';
+import './tradestyles.css'; // ✅ No 'tradestyles.'
+ // const TradeBookMobileView  =({ tradeDataB }) => {
+export  const  TradeBookMobileView  =({ sortedData, userLogged, handleSort ,getSortIndicator }) => {
+  const sortDataMemoised = useMemo(() => (sortedData),[sortedData]);
+  const [mobSorted , setMobSorted] = useState([]);
+  useEffect( () => {
+    if( sortedData ===null || sortedData ===undefined || sortedData ==='') {
+
+      setMobSorted(CommonConstants.sampleTradeDataVersion1);
+      console.log("experiment dummy trade book  1");
+    }
+    else if(Array.isArray(sortedData) &&  (sortedData.length== 0) && userLogged ) {
+      let fr =  CommonConstants.sampleObjTradeDataVersion1 ; //JSON.parse(CommonConstants.sampleTradeDataVersion1);
+      console.log("fr "+JSON.stringify(fr));
+      setMobSorted( (prev) => prev = fr );
+     
+      console.log("experiment dummy trade book 2");
+    }
+
+
+  } , [sortedData, mobSorted])
+ /* StorageUtils._save(CommonConstants.tradeDataCacheKey,CommonConstants.sampleTradeDataVersion1);
+ //  const currentPlatform = useSelector((state ) => state.misc.platformType)
+   const [parsedData, setParsedData] = useState(() => JSON.parse(StorageUtils._retrieve(CommonConstants.tradeDataCacheKey).data));
+  
+  const [data, setData] = useState(tradeDataB);
+    const [sortColumn, setSortColumn] = useState(null); // e.g., "symbol"
+  const [sortDirection, setSortDirection] = useState("asc"); // "asc" or "desc"
+
+
+    function parseDate(str) {
+    // e.g., "14-Jul-2025 09:48:22"
+    const [datePart, timePart] = str.split(" ");
+    const [day, mon, year] = datePart.split("-");
+    const monthMap = {
+      Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+      Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+    };
+    const [hour, min, sec] = timePart.split(":").map(Number);
+    return new Date(year, monthMap[mon], day, hour, min, sec);
+  } 
+ const handleSort = (column) => {
+    if (sortColumn === column) {
+      setSortDirection(prev => prev === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+ const sortedData = useMemo(() => {
+  if (!userLogged) return parsedData;
+  if (!sortColumn) return parsedData;
+
+  const dataToSort = [...parsedData];
+
+  if (sortColumn === 'orderDateTime') {
+    return dataToSort.sort((a, b) => {
+      const timeA = parseDate(a[sortColumn]).getTime();
+      const timeB = parseDate(b[sortColumn]).getTime();
+
+      return sortDirection === "asc"
+        ? timeA - timeB
+        : timeB - timeA;
+    });
+  }
+
+  return dataToSort.sort((a, b) => {
+    const valA = a[sortColumn];
+    const valB = b[sortColumn];
+
+    const isNumeric = !isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB));
+
+    if (isNumeric) {
+      return sortDirection === "asc"
+        ? parseFloat(valA) - parseFloat(valB)
+        : parseFloat(valB) - parseFloat(valA);
+    }
+
+    return sortDirection === "asc"
+      ? String(valA).localeCompare(String(valB))
+      : String(valB).localeCompare(String(valA));
+  });
+}, [parsedData, sortColumn, sortDirection]);
+
+const getSortIndicator = (column) =>
+    sortColumn === column ? (sortDirection === "asc" ? " ▲" : " ▼") : "";
+
+  Trade Row  
+  <div className="flex   sm:grid sm:grid-cols-1 sm:text-sm text-xs text-gray-800 border-b py-1 hover:bg-gray-50"> 
+*/
+  return ( 
+    
+  (  Array.isArray(mobSorted) &&  (mobSorted.length > 0) && userLogged  ) ? mobSorted?.map((row, index) => (
+   <div key={index} className={` flex  border border-blue-50  sm:grid sm:grid-cols-1 sm:text-sm text-xs hover:bg-gray-50 transition  ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'} `}>
+ {/*Instrument */}
+  <div className={` text-xs font-medium sm:text-left text-center `}>
+    <span className="sm:hidden font-semibold text-gray-500">{/*Inst: */}</span> {row["symbol"]}
+  </div>
+{/*Type:*/}
+ {/*Product Type 
+  <div className={`px-2 text-xs sm:text-left text-center ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`}>
+    <span className="sm:hidden font-semibold text-gray-500"> </span>{row["productType"]}
+  </div>
+*/}
+ {/*Quantity */}
+  <div className={`px-2 text-xs sm:text-right text-center ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`}>
+    <span className="sm:hidden font-semibold text-gray-500">{/*Qty: */}</span> {row["tradedQty"]}
+  </div>
+
+ {/*Price */}
+  <div className={`px-2  text-xs sm:text-right text-center ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`} >
+    <span className="sm:hidden font-semibold text-gray-500">{/*Prc:*/} </span> {row["tradePrice"]}
+  </div>
+
+ {/*Time */}
+  <div className={`px-2  text-xs text-center sm:text-left ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`}>
+    <span className="sm:hidden font-semibold text-gray-500">{/*Tm: */}</span> {row["orderDateTime"]}
+  </div>
+
+ {/*Trade Value */}
+  <div className={`px-2 text-xs  sm:text-right text-center ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`}>
+    <span className="sm:hidden font-semibold text-gray-500">{/*Val:*/} </span>{row["tradeValue"]}
+  </div>
+   {/* Buy/Sell */}
+  <div class={`px-2 text-xs text-center ${row['side'] === -1 ? 'trade-row-sell' : 'trade-row-buy'}`}>
+    <span class="inline-block px-2 py-0.5 rounded font-bold text-xs sm:text-sm 
+              ">
+     {row['side'] === -1 ? 'S' : 'B'}
+    </span>
+  </div>
+
+</div>
+ )  ) : (<><div colSpan="1" className="text-center py-4">No trades found <button>Mobile View </button> </div> </>) )};
+           
+ 
+
+   
+/*
+  return (
+    <div className="space-y-4 p-2">
+      {data.map((entry, index) => (
+        <div
+          key={index}
+          className={`p-4 rounded-lg shadow-sm ${
+            entry.action === "BUY" ? "bg-green-100" : "bg-red-100"
+          }`}
+        >
+          <div className="font-bold text-sm">{entry.instrument}</div>
+          <div className="text-xs text-gray-600">{entry.productType}</div>
+          <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <span className="font-semibold">Qty:</span> {entry.quantity}
+            </div>
+            <div>
+              <span className="font-semibold">Price:</span> ₹{entry.price}
+            </div>
+            <div>
+              <span className="font-semibold">Time:</span> {entry.time}
+            </div>
+            <div>
+              <span className="font-semibold">Value:</span> ₹{entry.tradeValue}
+            </div>
+            <div className="col-span-2 mt-1">
+              <span
+                className={`px-2 py-1 rounded text-xs font-bold ${
+                  entry.action === "BUY"
+                    ? "bg-green-500 text-white"
+                    : "bg-red-500 text-white"
+                }`}
+              >
+                {entry.action}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );*/ 
+ 
+

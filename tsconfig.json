@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["env.d.ts","next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "redux/slices/miscSlice.ts", "redux/slices/stockSlice.ts", "components/company/order/OrderTable.jsx", "components/listing/tradeGrid/tickerWebSocket.actions.js", "components/listing/tradeGrid/useIsMobile.js", "components/listing/tradeGrid/useIsMobile.tst"],
+  "exclude": ["node_modules"]
+}

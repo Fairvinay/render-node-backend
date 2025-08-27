@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+	 <link  type="text/css" rel="stylesheet" href="/bootcss/bootstrap.min.css"/>
+	  <script type="text/javascript" src="/jquery/jquery.min.js" crossorigin="anonymous"></script>	
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+	  <script type="text/javascript" src="/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+          <!-- Bootstrap 4
+	<script src="/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/asset/css/uploadaddhar.css">
+ <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.2.5/dist/dbr.js"
+      data-productKeys="t0068NQAAACwiu6aXm/RiDD7y6oAZlmMZOA5c6n1Gz8g3RyCV8qM7FcX1Yv8iY1GRN+ZerYU/hXcIeg2CIfAJzhsms30pQ40="></script>
+   <!-- https://jsfiddle.net/bootstrapious/8w7a50n2 -->
+
+   <link type="text/css" rel="Stylesheet" href="/asset/css/style_new.css" />
+     <script type="text/javascript">
+  
+   
+	</script>
+      <style type="text/css">
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
+	       {
+		     height: 5px;
+		     width: fit-content;
+		     line-height:0.52857143;
+		     overflow:auto;
+		     text-align: center;
+			}
+        .borderbottom
+                {
+                        border-bottom:1px solid #dbdbdb;
+            }
+            @media (min-width: 1200px) {
+        .container {
+            max-width: 100%;
+        }
+        .input-sm{ font-size:.8rem; }
+    }
+    </style>
+</head>
+
+<body>
+<div class="container py-5">
+<h1> FYERS QUOTES </h1>
+
+<div class="container " style="display:inline">
+ <div class="row">  <!-- MAIN ROW-->
+  <div class="row"> <!-- INNER ROW -->
+   <!--profile --> 
+   <div class="card-body">
+    <div class="tab-content p-0">
+
+      <div class="col" style="text-align: center;margin: 2%;">
+        
+        <table id="table" data-toggle="table" data-flat="true" data-search="true" >
+            <thead>
+              <tr>
+                  <th data-field="" data-sortable="true">STOCK</th>
+                  <th data-field="" data-sortable="true">ASK </th>
+                  <th data-field="" data-sortable="true">FYERS</th>
+                  <th data-field="" data-sortable="true">FYERS</th>
+                  <th data-field="" data-sortable="true">BID</th>
+                  <th data-field="" data-sortable="true">FYERS</th>
+                  <th data-field="" data-sortable="true">FYERS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% var count = 0; var countAsk =0 ; var countBid = 0; %>
+              <% data.forEach((order)=>{  %>
+                  <tr data-index="<%= count %>">
+                      <td><%= order.STOCK %></td>
+                      <% var STOCK_ASK =  order.STOCK_ASK; %>
+                      <td>  <table id="tableAsk" data-toggle="table" data-flat="true" data-search="true" > 
+                      <% if(countAsk < 1) {  %>
+                        <tr>
+                            <!-- <th data-field="" data-sortable="true">PRICE</th>
+                            <th data-field="" data-sortable="true">VOLUME </th>
+                            <th data-field="" data-sortable="true">ORD QTY</th> -->
+                         </tr>
+                       <%  } %>
+                        <tr> 
+                    
+                       <% STOCK_ASK.forEach((ask)=>{  %>
+                        <tr> 
+                         <td><%= ask.price %></td>
+                        <td><%= ask.volume%></td>
+                        <td><%= ask.ord%></td>
+                        </tr>
+                        <% }) %>
+                      </table>
+                       </td> 
+                        <% var STOCK_BID =  order.STOCK_BID; %>       
+                      <td> <table id="tableBid" data-toggle="table" data-flat="true" data-search="true" >  
+                       <% if(countBid < 1) {  %>
+                           <tr>
+                              <!-- <th data-field="" data-sortable="true">PRICE</th>
+                            <th data-field="" data-sortable="true">VOLUME </th>
+                            <th data-field="" data-sortable="true">ORD QTY</th> -->
+                            </tr>
+                        <%  } %>
+                         <tr>    
+                      <% STOCK_BID.forEach((bid)=>{  %>
+                        <tr> 
+                          <td><%= bid.price %></td>
+                          <td><%= bid.volume%></td>
+                          <td><%= bid.ord%></td>
+                         </tr>
+                        <% }) %>       
+                      </table> </td>  
+                    </tr>
+                  <% count +=1; countBid +=1; countAsk +=1; %>
+              <% }) %>
+            </tbody>
+          </table>
+          <div> Total records : <%=count%></div>
+        
+
+       </div>
+       <div class="col" style="text-align: center;margin: 2%;"> 
+        <%  var secondRecord  =  data [1]  %>
+
+        <div class="d-overlay ui-draggable ui-draggable-handle" id="d-fyers-widgets" style="left: 198.222px; top: 29.9259px;">
+            <div class="d-head"><span class="d-title" id="d-scrip"><%= secondRecord.STOCK %></span><span class="d-close-container" id="d-close-fyers-widgets"><i class="material-icons">close</i></span></div>
+            <div class="d-tabs"><span class="d-push-right" id="d-tab-highs-n-lows">Highs &amp; Lows</span><span class="d-push-right" id="d-tab-futures-chain">Futures Chain</span><span class="d-push-right" id="d-tab-corporate-actions">Corp. Actions</span><span class="d-push-right"
+                id="d-tab-time-n-sales">Time &amp; Sales</span><span id="d-tab-market-depth" class="d-active d-push-right">Market Depth</span></div>
+            <div id="d-tab-container" class="d-border-top">
+                <div id="d-market-depth-tabs">
+                    <div class="d-tab-md-head">
+                        <div style="display:table; width:100%;" class="d-tab-md-head-bg">
+                            <div style="display:table-row;">
+                                <div style="display:table-cell; padding: 5px 0; width:20%;">Orders</div>
+                                <div style="display:table-cell; padding: 5px 0; width:15%;">Qty</div>
+                                <div style="display:table-cell; padding: 5px 0; width:15%;">Bid</div>
+                                <div style="display:table-cell; padding: 5px 15px; width:20%;" class="d-border-left">Offer</div>
+                                <div style="display:table-cell; padding: 5px 0; width:15%;">Qty</div>
+                                <div style="display:table-cell; padding: 5px 0;">Orders</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding:0 15px;">
+                        <% 
+                        if( secondRecord.STOCK_ASK !== null && secondRecord.STOCK_ASK !== undefined) { 
+                          var STOCK_ASK =  secondRecord.STOCK_ASK; 
+                           var STOCK_BID =  secondRecord.STOCK_BID;
+                          
+                           %>  
+                        <div id="d-table-body" style="margin-bottom: 15px;display:table; width:100%;" class="d-border-bottom">
+                           
+                            <% var STOCK_ASK =  secondRecord.STOCK_ASK; %>  
+                            <%  for (let o =0; o <  STOCK_ASK.length   ; o++ ) {   
+
+                                var ask = STOCK_ASK[o]; var bid = STOCK_BID[o];  %>
+                            <div class="d-md-row" style="display:table-row;">
+                               
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-0">
+                                        <div style="display:table-row;">
+                                           
+                                            <div id="d-bid-row-0-ord" style="display:table-cell; padding: 5px 0; width:40%;" class="d-green"><%= bid.ord%></div>
+                                            <div id="d-bid-row-0-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-green"><%= bid.volume%></div>
+                                            <div id="d-bid-row-0-price" style="display:table-cell; padding: 5px 0;" class="d-green"><%= bid.price %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-0">
+                                        <div style="display:table-row;">
+                                            <div id="d-ask-row-0-price" style="display:table-cell; padding: 5px 15px; width:40%;" class="d-red d-border-left"><%= ask.price %></div>
+                                            <div id="d-ask-row-0-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-red"><%= ask.volume %></div>
+                                            <div id="d-ask-row-0-ord" style="display:table-cell; padding: 5px 0;" class="d-red"><%= ask.ord %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %> 
+                         <!--   <div class="d-md-row" style="display:table-row;">
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-1">
+                                        <div style="display:table-row;">
+                                            <div id="d-bid-row-1-ord" style="display:table-cell; padding: 5px 0; width:40%;" class="d-green">0</div>
+                                            <div id="d-bid-row-1-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-green">0</div>
+                                            <div id="d-bid-row-1-price" style="display:table-cell; padding: 5px 0;" class="d-green">0.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-1">
+                                        <div style="display:table-row;">
+                                            <div id="d-ask-row-1-price" style="display:table-cell; padding: 5px 15px; width:40%;" class="d-red d-border-left">0.00</div>
+                                            <div id="d-ask-row-1-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-red">0</div>
+                                            <div id="d-ask-row-1-ord" style="display:table-cell; padding: 5px 0;" class="d-red">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-md-row" style="display:table-row;">
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-2">
+                                        <div style="display:table-row;">
+                                            <div id="d-bid-row-2-ord" style="display:table-cell; padding: 5px 0; width:40%;" class="d-green">0</div>
+                                            <div id="d-bid-row-2-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-green">0</div>
+                                            <div id="d-bid-row-2-price" style="display:table-cell; padding: 5px 0;" class="d-green">0.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-2">
+                                        <div style="display:table-row;">
+                                            <div id="d-ask-row-2-price" style="display:table-cell; padding: 5px 15px; width:40%;" class="d-red d-border-left">0.00</div>
+                                            <div id="d-ask-row-2-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-red">0</div>
+                                            <div id="d-ask-row-2-ord" style="display:table-cell; padding: 5px 0;" class="d-red">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-md-row" style="display:table-row;">
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-3">
+                                        <div style="display:table-row;">
+                                            <div id="d-bid-row-3-ord" style="display:table-cell; padding: 5px 0; width:40%;" class="d-green">0</div>
+                                            <div id="d-bid-row-3-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-green">0</div>
+                                            <div id="d-bid-row-3-price" style="display:table-cell; padding: 5px 0;" class="d-green">0.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-3">
+                                        <div style="display:table-row;">
+                                            <div id="d-ask-row-3-price" style="display:table-cell; padding: 5px 15px; width:40%;" class="d-red d-border-left">0.00</div>
+                                            <div id="d-ask-row-3-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-red">0</div>
+                                            <div id="d-ask-row-3-ord" style="display:table-cell; padding: 5px 0;" class="d-red">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-md-row" style="display:table-row;">
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-4">
+                                        <div style="display:table-row;">
+                                            <div id="d-bid-row-4-ord" style="display:table-cell; padding: 5px 0; width:40%;" class="d-green">0</div>
+                                            <div id="d-bid-row-4-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-green">0</div>
+                                            <div id="d-bid-row-4-price" style="display:table-cell; padding: 5px 0;" class="d-green">0.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-4">
+                                        <div style="display:table-row;">
+                                            <div id="d-ask-row-4-price" style="display:table-cell; padding: 5px 15px; width:40%;" class="d-red d-border-left">0.00</div>
+                                            <div id="d-ask-row-4-vol" style="display:table-cell; padding: 5px 0; width:30%;" class="d-red">0</div>
+                                            <div id="d-ask-row-4-ord" style="display:table-cell; padding: 5px 0;" class="d-red">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                          <!--  <div class="d-md-row" style="display:table-row;">
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-bid-row-total">
+                                        <div style="display:table-row;">
+                                            <div style="display:table-cell; padding: 5px 0; width:40%;font-weight:bold;" class="d-green">Total</div>
+                                            <div id="d-bid-row-total-price" style="display:table-cell; padding: 5px 0; width:30%;font-weight:bold;" class="d-green">39</div>
+                                            <div style="display:table-cell; padding: 5px 0;font-weight:bold;" class="d-green"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:table-cell; width:50%;">
+                                    <div style="display:table;width:100%;cursor:pointer;" id="d-ask-row-total">
+                                        <div style="display:table-row;">
+                                            <div style="display:table-cell; padding: 5px 15px; width:40%;font-weight:bold;" class="d-red d-border-left">Total</div>
+                                            <div id="d-ask-row-total-price" style="display:table-cell; padding: 5px 0; width:30%;font-weight:bold;" class="d-red">0</div>
+                                            <div style="display:table-cell; padding: 5px 0;font-weight:bold;" class="d-red"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <% } %> 
+                    </div>
+                    <div id="d-tab-md-bottom" style="display:table; width:100%; margin-bottom: 15px;">
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">P. Close</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-close">4077.80</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Open</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-open">4095.30</div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">High</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-high">4111.00</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Low</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-low">4030.00</div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Volume</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-vol">1971591</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Avg. Price</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-avg-price">4065.26</div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Change (%)</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-ch_chp">-41.95 (-1.0287409877875324%)</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" title="Last Traded Price">LTP</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-lp">4035.85</div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" title="Last Traded Quantity">LTQ</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-ltq">1</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" title="Last Traded Time">LTT</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-ltt">21 Jan 2025 15:59:53</div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" title="Lower Circuit">LC</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-lc">3670.05</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" title="Upper Circuit">UC</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-uc">4485.55</div>
+                        </div>
+                        <div style="display:table-row;" id="bottom">
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;">Expiry</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-expiry">NA</div>
+                            <div style="display:table-cell; padding: 5px 15px;color:#aaa;" id="d-md-ltdName" class="d-none" title="Last Traded Date">LTD</div>
+                            <div style="display:table-cell; padding: 5px 15px;" id="d-md-ltd" class="d-none">0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      </div>
+      <!--  Morris chart - Sales -->
+      <div class="chart tab-pane " id="revenue-chart" style="background-color: inherit;position: 'relative', height: 300">
+        <div class="col" style="text-align: center;margin: 2%;">
+        <ul>
+             
+
+                <li>  <%=data%>
+                </li>
+              
+        </ul>
+        </div>
+        <!--  <canvas id="revenue-chart-canvas" height={300} style="height: 300" />  -->                       
+      </div>
+      <div className="chart tab-pane" id="sales-chart" style="position: 'relative', height: 300">
+        <!-- <canvas id="sales-chart-canvas" height={300} style="height: 300" />      -->                   
+      </div>  
+    </div>
+  </div><!--  /.card-body -->
+  <div className="card-body">
+     <!--<canvas className="chart" id="line-chart" style="min-height: 250, height: 250, max-height: 250, max-width: '100%'"/> -->
+  </div>  
+
+  </div>  <!-- INNER ROW -->
+ </div><!-- MAIN ROW-->
+</div>
+</div>
+ </form>
+</div>
+
+	<!-- 
+		for (var i=0; (i+1+chunk) < lenghSt ; i+=chunk) {	array2 += array1.substring(i, i+chunk) + " \n"; console.log("array2 "+array2);  }
+	-->
+
+
+</body>
+</html>
+         

@@ -1,0 +1,1 @@
+var dummyData= '{"Error":"Valid Candle Intervals are '1minute','5minute','30minute','1day' and '1second'","Status":500}'

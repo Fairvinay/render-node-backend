@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+	 <link  type="text/css" rel="stylesheet" href="/bootcss/bootstrap.min.css"/>
+	  <script type="text/javascript" src="/jquery/jquery.min.js" crossorigin="anonymous"></script>	
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+	  <script type="text/javascript" src="/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+          <!-- Bootstrap 4
+	<script src="/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/asset/css/uploadaddhar.css">
+ <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@8.2.5/dist/dbr.js"
+      data-productKeys="t0068NQAAACwiu6aXm/RiDD7y6oAZlmMZOA5c6n1Gz8g3RyCV8qM7FcX1Yv8iY1GRN+ZerYU/hXcIeg2CIfAJzhsms30pQ40="></script>
+   <!-- https://jsfiddle.net/bootstrapious/8w7a50n2 -->
+
+   <link type="text/css" rel="Stylesheet" href="/asset/css/style_new.css" />
+   <!---   FYERS   UI   AND   JS    IMPORTANT   SCRIPT  LINK -->
+   <link href="https://login.fyers.in/new-sso/16.3/fyers-ui.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+   integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://assets.fyers.in/Lib/intlTelInput.css" />
+   <script src="https://assets.fyers.in/Lib/intlTelInput.min.js"></script>
+   <link rel="stylesheet" href="https://assets.fyers.in/fy_notifications/css/2.0/notify.min.css" />
+   <script src="https://trade.fyers.in/Prod/1.2/fyers-widget.min.js"></script>
+   <link rel="preload" as="font" href="https://assets.fyers.in/global-components/fonts/text-security-disc.woff" type="font/woff" crossorigin="anonymous">
+    <!---   FYERS UI UI UI AND JS JS JS JS    IMPORTANT   SCRIPT  LINK -->
+     <script type="text/javascript">    
+    // KEY FUNCTINON  JUST HIT the FYER APIS that CALL BACK OUR 
+    // REDIRECT URI https://api-t1.fyers.in/api/v3/generate-authcode?client_id=7GSQW68AZ4-100&redirect_uri=https://192.168.1.8:56322/fyersauthcode&response_type=code&state=sample_state
+      
+     $(document).ready(function () {
+
+        hidAGREE = $('#hidenc').val().trim() ;
+        hidDIRECT = $('#hiddirect').val().trim() ;
+        var passOver = "client_id="+hidAGREE+"&redirect_uri="+hidDIRECT+"&response_type=code&state=sample_state"
+         window.location.assign( "https://api-t1.fyers.in/api/v3/generate-authcode?"+passOver);
+       //https://api-t1.fyers.in/api/v3/generate-authcode?client_id=7GSQW68AZ4-100redirect_uri=https://192.168.1.8:56322/fyersauthcode&response_type=code&state=sample_state
+       console.log("FYERS API REQUEST FORWARD ..." )
+       console.log("https://api-t1.fyers.in/api/v3/generate-authcode?"+passOver )
+     });
+   
+	</script>
+      <style type="text/css">
+        .borderbottom
+                {
+                        border-bottom:1px solid #dbdbdb;
+            }
+            @media (min-width: 1200px) {
+        .container {
+            max-width: 100%;
+        }
+        .input-sm{ font-size:.8rem; }
+    }
+    </style>
+</head>
+
+<body>
+<div class="container py-5">
+  <div class="col" style="text-align: center;margin: 2%;">
+   <h1> GOOD MORNING </h1>
+</div>
+<form> 
+    <div class="container " style="display:inline"> <!--trade-content-box -->
+ <div class="row">  <!-- MAIN ROW-->
+  <div class="row"> <!-- INNER ROW -->
+   <!--profile --> 
+   <div class="card-body">
+    <div class="tab-content p-0">
+      <!--  Morris chart - Sales --> <!-- active -->
+      <div class="chart tab-pane active" id="revenue-chart" style="background-color: inherit; position: 'relative', height: 300">
+        <section class="container login-form" id="mobile-number-form" >
+        <div class="row mt-6">
+            <div class="col" style="text-align: center;margin: 2%;">
+                <img src="https://assets.fyers.in/images/logo.svg" alt="FYERS" width="225">
+            </div>
+        </div>
+        </section> 
+        <!--  <canvas id="revenue-chart-canvas" height={300} style="height: 300" />  -->                       
+      </div>
+      <div className="chart tab-pane" id="sales-chart" style="position: 'relative', height: 300">
+        <!-- <canvas id="sales-chart-canvas" height={300} style="height: 300" />      -->                   
+      </div>  
+    </div>
+  </div><!--  /.card-body -->
+  <div className="card-body">
+     <!--<canvas className="chart" id="line-chart" style="min-height: 250, height: 250, max-height: 250, max-width: '100%'"/> -->
+  </div>  
+
+  </div>  <!-- INNER ROW -->
+ </div><!-- MAIN ROW-->
+</div>
+</div>
+<input type="hidden" id="hidenc"  value='<%=PUSHLIEDDAYFYERSAGREEMENT%>'>
+<input type="hidden" id="hiddirect"  value='<%=PUSHLIEDDAYFYERSDIRECTION%>'>
+ </form>
+</div>
+
+	<!-- 
+		for (var i=0; (i+1+chunk) < lenghSt ; i+=chunk) {	array2 += array1.substring(i, i+chunk) + " \n"; console.log("array2 "+array2);  }
+	-->
+
+
+</body>
+</html>
+         

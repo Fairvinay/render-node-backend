@@ -1,0 +1,6 @@
+/*button,*/
+input[id="CANCELBUTTONID"] 
+  {
+  background-color: rgb(239, 29, 113) !important;
+  background-image: none !important;
+}

@@ -50,6 +50,10 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+
+#screens 
+screens
+
 # Optional eslint cache
 .eslintcache
 

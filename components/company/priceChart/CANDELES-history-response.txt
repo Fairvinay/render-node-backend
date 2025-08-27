@@ -1,0 +1,13 @@
+ {
+ "status": "ok",
+     "candles": [
+     [
+         "time stamp",
+         "Open Value",
+         "Highest Value",
+          "Lowest Value",
+         "Close Value",
+         "volume"
+     ]
+ ]
+ }

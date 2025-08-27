@@ -1,0 +1,275 @@
+{
+  "value": [
+    {
+      "symbol": "NIFTY2571725900PE",
+      "orderType": "1",
+      "tradedQty": "75",
+      "tradePrice": "801.95",
+      "tradeValue": "60146.25",
+      "productType": "INTRADAY",
+      "segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571726000PE",
+      "orderType": "1",
+      "tradedQty": "150",
+      "tradePrice": "915.9",
+      "tradeValue": "137385",
+      "productType": "MARGIN",
+      "segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "1",
+      "tradedQty": "225",
+      "tradePrice": "499",
+      "tradeValue": "112275",
+      "productType": "INTRADAY",
+          "segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "880.3",
+      "tradeValue": "30810.5",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "955.6",
+      "tradeValue": "33446",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "1007.15",
+      "tradeValue": "35250.25",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "987",
+      "tradeValue": "34545",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "899.95",
+      "tradeValue": "31498.25",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "1",
+      "tradedQty": "150",
+      "tradePrice": "536.95",
+      "tradeValue": "80542.5",
+      "productType": "MARGIN",
+      "segment":"11","side":"-1"
+      
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "970.05",
+      "tradeValue": "33951.75",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "491.9",
+      "tradeValue": "36892.5",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "919.25",
+      "tradeValue": "32173.75",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "NIFTY2571725750PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "646.15",
+      "tradeValue": "48461.25",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "976.55",
+      "tradeValue": "34179.25",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "529.75",
+      "tradeValue": "39731.25",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "888.75",
+      "tradeValue": "31106.25",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BSE:SENSEX2571583500CE",
+      "orderType": "1",
+      "tradedQty": "20",
+      "tradePrice": "24.3",
+      "tradeValue": "486",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "534.2",
+      "tradeValue": "40065",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "999",
+      "tradeValue": "34965",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "1000.95",
+      "tradeValue": "35033.25",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725750PE",
+      "orderType": "1",
+      "tradedQty": "150",
+      "tradePrice": "657.95",
+      "tradeValue": "98692.5",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "NIFTY2571725600PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "491.9",
+      "tradeValue": "36892.5",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "BSE:SENSEX2571583500CE",
+      "orderType": "1",
+      "tradedQty": "20",
+      "tradePrice": "28.7",
+      "tradeValue": "574",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "2",
+      "tradedQty": "35",
+      "tradePrice": "957.15",
+      "tradeValue": "33500.25",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "NIFTY2571726000PE",
+      "orderType": "2",
+      "tradedQty": "150",
+      "tradePrice": "904.3",
+      "tradeValue": "135645",
+      "productType": "INTRADAY",
+          "segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "995.2",
+      "tradeValue": "34832",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"1"
+    },
+    {
+      "symbol": "NIFTY2571726000PE",
+      "orderType": "2",
+      "tradedQty": "75",
+      "tradePrice": "905.25",
+      "tradeValue": "67893.75",
+      "productType": "INTRADAY",
+          "segment":"11","side":"1"
+    },
+    {
+      "symbol": "NIFTY2571726000PE",
+      "orderType": "1",
+      "tradedQty": "75",
+      "tradePrice": "915.9",
+      "tradeValue": "68692.5",
+      "productType": "MARGIN",
+          "segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "983",
+      "tradeValue": "34405",
+      "productType": "INTRADAY"
+      ,"segment":"11","side":"-1"
+    },
+    {
+      "symbol": "BANKNIFTY25JUL57500PE",
+      "orderType": "1",
+      "tradedQty": "35",
+      "tradePrice": "989.95",
+      "tradeValue": "34648.25",
+      "productType": "MARGIN"
+      ,"segment":"11","side":"-1"
+    }
+  ]
+}

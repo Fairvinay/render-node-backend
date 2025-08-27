@@ -1,0 +1,51 @@
+{
+   MarketQuote : [ {
+	 n: string,
+         s: string,
+	 MarketQuoteDetails : {
+		/** Change value. */
+		  ch: number,
+		  /** Percentage of change between the current value and the previous day's market close. */
+		  chp: number,
+		  /** Last traded price. */
+		  lp: number,
+		  /** Difference between lowest asking and highest bidding price. */
+		  spread: number,
+		  /** Asking price for the symbol. */
+		  ask: number,
+		  /** Bidding price for the symbol. */
+		  bid: number,
+		  /** Price at market opening time. */
+		  open_price: number,
+		  /** Highest price for the day. */
+		  high_price: number,
+		  /** Lowest price for the day. */
+		  low_price: number,
+		  /** Close price of the previous trading day. */
+		  prev_close_price: number,
+		  /** Volume traded. */
+		  volume: number,
+		  /** Short name for the symbol Eg: “SBIN-EQ”. */
+		  short_name: string,
+		  /** Name of the exchange. Eg: “NSE” or “BSE”. */
+		  exchange: string,
+		  /** Description of the symbol. */
+		  description: string,
+		  /** Original name of the symbol name provided by the use. */
+		  original_name: string,
+		  /** Symbol name provided by the user. */
+		  symbol: string,
+		  /** Fytoken is a unique identifier for every symbol. */
+		  fyToken: string,
+		  /** Today’s time. */
+		  tt: number,
+		  /** Current time, open, high, low price and volume with HH:MM timestamp. */
+		  cmd: Candle 
+
+
+		}
+	  
+   	 }   
+	]
+
+}

@@ -1,0 +1,514 @@
+/* Extra-small */
+@media screen and (max-width: 360px) {
+    /* ... */
+    .main {
+        padding: 10px 14px;
+        font-family: "Segoe UI",Arial,sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+      }
+      .main .addresse {
+      /*box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2); */
+         border-radius: 3px;
+         border-width:1px;
+         display: table-cell;
+          height: 1%;
+          box-shadow:
+             inset 0 -3em 3em rgba(0,0,0,0.1),
+                   0 0  0 2px rgb(255,255,255),
+                   0.3em 0.3em 1em rgba(0,0,0,0.3);
+      }
+      .para {
+        box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2);
+          width: 930px;
+          height: 995px;
+         border-radius: 3px;
+          padding: 2px 3px;
+          overflow-y: auto;
+          overflow-x: auto;
+          resize: both;
+      }
+          .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.2s;
+            width: 130px;
+            height: 83px;
+            padding: 2px 3px;
+          }
+          
+          .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+          }
+          
+          .container {
+            padding: 1px 1px;
+            margin:0 0;
+            
+          }
+          .container > h4 > span {
+            font-family:  "courier", Verdana MS-SanSerif;
+            font-size: 13px;
+            font-weight:bold;
+          } 
+          #frameID { 
+            border: 1px;
+            border-style: inset;
+          border-radius: 3px;
+          box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+          display: flex;
+            display:inherit;
+            resize: both;
+          }
+          .emailHeader {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+            background-color: rgb(169 165 210);
+            border-bottom: 0px;
+            border-right: 2px;
+            border-right-color: rgb(110 101 158);
+            margin-left: 2px;
+            margin: 0 auto;
+          }
+          .emailHeaderPart {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+           
+          }
+          .list-group-item.active{
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+            padding: 2px 3px !important;
+          }
+          .active { 
+            text-align: center;
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+           }
+           .list-group-item > .btn { 
+            color: #483f3f;
+          font-weight: bold;
+          background-color: #e6e6e6;
+          border-color: #cecece;
+          word-wrap: break-word;
+          /*width: 4px;*/
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+           }
+           .list-group-item > .btn-info {
+            color: #483f3f;
+            background-color: none !important; 
+            border-color: none !important;
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+          } 
+          .subTitle {
+           /* background-color:lavenderblush; */
+            font-family:  "Verdana", MS-SanSerif;
+            font-size: 9px;
+            font-weight: bold;
+            /*margin: 6px 2px;
+            padding: 6px 7px;*/
+            display:inline;
+            /*word-wrap: break-word;
+            hyphens: auto;*/
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          .msgTitle {
+            font-family: "Verdana", MS-SanSerif;
+            font-size: 13px;
+            font-weight:bold;
+            padding: 0.1em 0.1em;
+           }
+          .rightPara { 
+            /*float: right; */
+            margin-right: 20px;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px 0 rgb(21 21 21 / 20%);
+      
+          }
+          .blockquote {
+          padding: 20px;
+          font-size: 23px;
+      
+          box-shadow:
+              inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(255,255,255),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+          font-family:  "Verdana", MS-SanSerif;
+      }
+  }
+  
+  /* Small */
+  @media screen and (min-width: 361px) and (max-width: 480px) {
+    /* ... */
+  }
+  
+  /* Medium-only */
+  @media screen and (min-width: 481px) and (max-width: 960px) {
+    /* ... */
+    .main {
+        padding: 10px 14px;
+        font-family: "Segoe UI",Arial,sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+      }
+      .main .addresse {
+      /*box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2); */
+         border-radius: 3px;
+         border-width:1px;
+         display: table-cell;
+          height: 1%;
+          box-shadow:
+             inset 0 -3em 3em rgba(0,0,0,0.1),
+                   0 0  0 2px rgb(255,255,255),
+                   0.3em 0.3em 1em rgba(0,0,0,0.3);
+      }
+      .para {
+        box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2);
+          width: 930px;
+          height: 995px;
+         border-radius: 3px;
+          padding: 2px 3px;
+          overflow-y: auto;
+          overflow-x: auto;
+          resize: both;
+      }
+          .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.2s;
+            width: 130px;
+            height: 83px;
+            padding: 2px 3px;
+          }
+          
+          .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+          }
+          
+          .container {
+            padding: 1px 1px;
+            margin:0 0;
+            
+          }
+          .container > h4 > span {
+            font-family:  "courier", Verdana MS-SanSerif;
+            font-size: 13px;
+            font-weight:bold;
+          } 
+          #frameID { 
+            border: 1px;
+            border-style: inset;
+          border-radius: 3px;
+          box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+          display: flex;
+            display:inherit;
+            resize: both;
+          }
+          .emailHeader {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+            background-color: rgb(169 165 210);
+            border-bottom: 0px;
+            border-right: 2px;
+            border-right-color: rgb(110 101 158);
+            margin-left: 2px;
+            margin: 0 auto;
+          }
+          .emailHeaderPart {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+           
+          }
+          .list-group-item.active{
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+            padding: 2px 3px !important;
+          }
+          .active { 
+            text-align: center;
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+           }
+           .list-group-item > .btn { 
+            color: #483f3f;
+          font-weight: bold;
+          background-color: #e6e6e6;
+          border-color: #cecece;
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+           }
+           .list-group-item > .btn-info {
+            color: #483f3f;
+            background-color: none !important; 
+            border-color: none !important;
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+          } 
+          .subTitle {
+           /* background-color:lavenderblush; */
+            font-family:  "Verdana", MS-SanSerif;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 10px 4px;
+            padding: 10px 13px;
+            display:inline;
+            word-wrap: break-word;
+            hyphens: auto;
+          }
+          .msgTitle {
+            font-family: "Verdana", MS-SanSerif;
+            font-size: 23px;
+            font-weight:bold;
+          
+          padding: 2px 3px;
+           }
+          .rightPara { 
+            /*float: right; */
+            margin-right: 20px;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px 0 rgb(21 21 21 / 20%);
+      
+          }
+          .blockquote {
+          padding: 20px;
+          font-size: 23px;
+      
+          box-shadow:
+              inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(255,255,255),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+          font-family:  "Verdana", MS-SanSerif;
+      }
+
+  }
+  @media screen and (min-width: 965px) and (max-width: 1960px)  {
+
+    .main {
+        padding: 10px 14px;
+        font-family: "Segoe UI",Arial,sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+      }
+      .main .addresse {
+      /*box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2); */
+         border-radius: 3px;
+         border-width:1px;
+         display: table-cell;
+          height: 1%;
+          box-shadow:
+             inset 0 -3em 3em rgba(0,0,0,0.1),
+                   0 0  0 2px rgb(255,255,255),
+                   0.3em 0.3em 1em rgba(0,0,0,0.3);
+      }
+      .para {
+        box-shadow: 0 2px 3px 0  rgba(65, 64, 64, 0.2);
+          width: 930px;
+          height: 995px;
+         border-radius: 3px;
+          padding: 2px 3px;
+          overflow-y: auto;
+          overflow-x: auto;
+          resize: both;
+      }
+          .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.2s;
+            width: 130px;
+            height: 83px;
+            padding: 2px 3px;
+          }
+          
+          .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+          }
+          
+          .container {
+            padding: 1px 1px;
+            margin:0 0;
+            
+          }
+          .container > h4 > span {
+            font-family:  "courier", Verdana MS-SanSerif;
+            font-size: 13px;
+            font-weight:bold;
+          } 
+          #frameID { 
+            border: 1px;
+            border-style: inset;
+          border-radius: 3px;
+          box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+          display: flex;
+            display:inherit;
+            resize: both;
+          }
+          .emailHeader {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+            background-color: rgb(169 165 210);
+            border-bottom: 0px;
+            border-right: 2px;
+            border-right-color: rgb(110 101 158);
+            margin-left: 2px;
+            margin: 0 auto;
+          }
+          .emailHeaderPart {
+            background-color:rgb(28, 7, 219); 
+            border-right: 2px;
+            border-right-color: rgb(28, 3, 172);
+           
+          }
+          .list-group-item.active{
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+            padding: 2px 3px !important;
+          }
+          .active { 
+            text-align: center;
+            color: #212529;
+            background-color: #a9a5d2;
+            border-color: rgb(245 ,245, 248);
+           }
+           .list-group-item > .btn { 
+            color: #483f3f;
+          font-weight: bold;
+          background-color: #e6e6e6;
+          border-color: #cecece;
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+           }
+           .list-group-item > .btn-info {
+            color: #483f3f;
+            background-color: none !important; 
+            border-color: none !important;
+            box-shadow: inset 0 -6em 3.5em rgb(0 0 0 / 10%), 0 0 0 0.1px rgb(255 255 255), 0.1em 0.1em 1em rgb(0 0 0 / 30%);
+      
+          } 
+		  .classShort {
+				font-size: 8px !important;
+				background-color: none;
+			border-color: none; 
+			 box-shadow: none; 
+		  }
+          .subTitle {
+           /* background-color:lavenderblush; */
+            font-family:  "Verdana", MS-SanSerif;
+            font-size: 26px;
+            font-weight: bold;
+            margin: 10px 4px;
+            padding: 10px 13px;
+            display:inline;
+            word-wrap: break-word;
+            hyphens: auto;
+          }
+          .msgTitle {
+            font-family: "Verdana", MS-SanSerif;
+            font-size: 23px;
+            font-weight:bold;
+          
+          padding: 2px 3px;
+           }
+          .rightPara { 
+            /*float: right; */
+            margin-right: 20px;
+            padding: 15px;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px 0 rgb(21 21 21 / 20%);
+      
+          }
+          .blockquote {
+          padding: 20px;
+          font-size: 23px;
+      
+          box-shadow:
+              inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(255,255,255),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+          font-family:  "Verdana", MS-SanSerif;
+      }
+
+    /*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+#upload {
+    opacity: 0;
+}
+
+#upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.image-area {
+    border: 2px dashed rgba(155, 155, 155, 0.7);
+    padding: 1rem;
+    position: relative;
+}
+
+.image-area::before {
+    /*content: 'Uploaded image result';*/
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    z-index: 1;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+}
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+body {
+    min-height: 100vh;
+    background-color: #754e9a;/*#757f9a;*/
+    background-image: linear-gradient(147deg, #754e9a 0%, #d7dde8 100%);
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+  

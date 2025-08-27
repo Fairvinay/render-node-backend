@@ -1,0 +1,174 @@
+ 
+import React, {Suspense, useEffect , useState,useMemo} from "react";
+import { CommonConstants } from "@/utils/constants";
+import { StorageUtils } from "@/libs/cache";
+//import React, {useEffect, useState} from 'react'
+import tradeBook from './tradesample.json';
+import './tradestyles.css'; // ✅ No 'tradestyles.'
+const TradeTable = ({ tradeDataB   }) => {
+  StorageUtils._save(CommonConstants.tradeDataCacheKey,CommonConstants.sampleTradeDataEmpty1);
+   const [parsedData, setParsedData] = useState([]);
+   // useState(() => []);//StorageUtils._retrieve(CommonConstants.tradeDataCacheKey).data
+   
+   const [data, setData] = useState(tradeDataB);
+     const [sortColumn, setSortColumn] = useState(null); // e.g., "symbol"
+  const [sortDirection, setSortDirection] = useState("asc"); // "asc" or "desc"
+
+  function parseDate(str) {
+    // e.g., "14-Jul-2025 09:48:22"
+    const [datePart, timePart] = str.split(" ");
+    const [day, mon, year] = datePart.split("-");
+    const monthMap = {
+      Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+      Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+    };
+    const [hour, min, sec] = timePart.split(":").map(Number);
+    return new Date(year, monthMap[mon], day, hour, min, sec);
+  }
+ const handleSort = (column) => {
+    if (sortColumn === column) {
+      setSortDirection(prev => prev === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+ const sortedData = useMemo(() => {
+  if (!sortColumn) return parsedData;
+
+  const dataToSort = [...parsedData];
+
+  if (sortColumn === 'orderDateTime') {
+    return dataToSort.sort((a, b) => {
+      const timeA = parseDate(a[sortColumn]).getTime();
+      const timeB = parseDate(b[sortColumn]).getTime();
+
+      return sortDirection === "asc"
+        ? timeA - timeB
+        : timeB - timeA;
+    });
+  }
+
+  return dataToSort.sort((a, b) => {
+    const valA = a[sortColumn];
+    const valB = b[sortColumn];
+
+    const isNumeric = !isNaN(parseFloat(valA)) && !isNaN(parseFloat(valB));
+
+    if (isNumeric) {
+      return sortDirection === "asc"
+        ? parseFloat(valA) - parseFloat(valB)
+        : parseFloat(valB) - parseFloat(valA);
+    }
+
+    return sortDirection === "asc"
+      ? String(valA).localeCompare(String(valB))
+      : String(valB).localeCompare(String(valA));
+  });
+}, [parsedData, sortColumn, sortDirection]);
+
+const getSortIndicator = (column) =>
+    sortColumn === column ? (sortDirection === "asc" ? " ▲" : " ▼") : "";
+
+
+     useEffect(() => {
+           console.log("TradeTable:   " )
+         
+           // FETH The recentTRades from storage if above call succeeded data will be there
+           let redentTradeData =  StorageUtils._retrieve(CommonConstants.recentTradesKey)
+            const dataFromCache = StorageUtils._retrieve(CommonConstants.tradeDataCacheKey)
+            let trades = undefined;
+            if( redentTradeData['data'] !== ''  && redentTradeData['data'] !== null && redentTradeData['data'] !==undefined){
+                     console.log(" recentTrades  trade data empty "+JSON.stringify(redentTradeData))
+                     let tr = JSON.parse((JSON.stringify(redentTradeData)));
+                     if(tr !==null && tr !== undefined ){
+                         if(tr['data'] !==null && tr['data']!== undefined ){
+                           trades =tr['data'];
+                            console.log(" trades SET to  tr['data'] ")
+
+                         }
+                     }
+                     
+            }else {
+               console.log("trade data fro cahce "+JSON.stringify(dataFromCache))
+               trades = dataFromCache.data ;
+            }
+           let dataLocal   =   (tradeDataB !== undefined && tradeDataB.length !=0 ) ? tradeDataB : trades;
+            console.log("trade data  "+JSON.stringify(dataLocal))
+            console.log("trade data length  "+ dataLocal.length )
+            try { 
+            let parsed = dataLocal /// JSON.parse(data);
+             setParsedData(parsed);
+             setData(dataLocal)
+              console.log("trade data typeof  "+ (typeof dataLocal ) )
+               console.log("trade data parsedData  "+ (typeof parsed ) )
+            console.log("trade data parsedData length  "+ (  parsed.length ) )
+            /* parsed.map( rw => { 
+                  console.log("   "+ JSON.stringify(rw) )  
+                  console.log("  rw[0]  "+  rw[0] )  
+                   console.log("symbol    "+  rw["symbol"] )  
+             }   )*/
+             }
+             catch(er) {
+                // show sample trades from json 
+                  dataLocal  =   tradeBook.value;
+                   let parsed = tradeBook.value;
+                 setParsedData(parsed);
+                  setData(dataLocal)
+                console.log("sample  trade data typeof  "+ (typeof dataLocal ) )
+               console.log("sample trade data parsedData  "+ (typeof parsed ) )
+              console.log("sample trade data parsedData length  "+ (  parsed.length ) )
+             /*  parsed.map( rw => { 
+                  console.log("   "+ JSON.stringify(rw) )  
+                  console.log("sample  trade  "+  rw[0] )  
+                   console.log("sample symbol    "+  rw["symbol"] )  
+             }   )*/
+
+             }
+
+       }, [tradeDataB]);
+   /*{
+    Instrument: tradeDataB[0] || "SAMPLE",
+    Quantity: tradeDataB[1] || "102",
+    Price: tradeDataB[2] || "1202",
+    "Trade Value": tradeDataB[3] || "14203",
+    "Product Type": tradeDataB[4] || "F&O",
+  };*/
+
+  return (
+    <div className="overflow-x-auto w-full bg-zinc-100">
+      <h1 className='text-black font-semibold mb-2 dark:text-white text-lg'>Trade Book</h1>
+      <table className="min-w-full text-sm text-left border border-gray-200 shadow-md rounded-lg overflow-hidden">
+        <thead className="bg-gray-100 text-gray-700 font-semibold">
+          <tr>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("symbol")}>Instrument{getSortIndicator("symbol")}</th>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("productType")}>Product Type{getSortIndicator("productType")}</th>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("tradedQty")}>Quantity{getSortIndicator("tradedQty")}</th>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("tradePrice")}>Price{getSortIndicator("tradePrice")}</th>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("orderDateTime")}>Time{getSortIndicator("orderDateTime")}</th>
+            <th className="py-2 px-4 border-b cursor-pointer" onClick={() => handleSort("tradeValue")}>Trade Value{getSortIndicator("tradeValue")}</th>
+            <th className="py-2 px-4 border-b">Buy/Sell</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {sortedData.length > 0 ? sortedData.map((row, index) => (
+            <tr key={index} className={`hover:bg-gray-50 transition ${row['side'] === '-1' ? 'trade-row-sell' : 'trade-row-buy'}`}>
+              <td className="py-2 px-4 border-b">{row["symbol"]}</td>
+              <td className="py-2 px-4 border-b">{row["productType"]}</td>
+              <td className="py-2 px-4 border-b">{row["tradedQty"]}</td>
+              <td className="py-2 px-4 border-b">{row["tradePrice"]}</td>
+              <td className="py-2 px-4 border-b">{row["orderDateTime"]}</td>
+              <td className="py-2 px-4 border-b">{row["tradeValue"]}</td>
+              <td className="py-2 px-4 border-b">{row['side'] === '-1' ? 'SELL' : 'BUY'}</td>
+            </tr>
+          )) : (
+            <tr><td colSpan="7" className="text-center py-4">No trades found</td></tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default TradeTable;
