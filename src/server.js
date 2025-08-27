@@ -13,10 +13,10 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 let  parsedUrl = '';
-const httpsOptions = {
+/*const httpsOptions = {
     key: fs.readFileSync('./ssl.key/server.key'),
   cert: fs.readFileSync('./ssl.crt/server.crt'),
-};
+};*/
 
 
 
