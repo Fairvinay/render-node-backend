@@ -1,0 +1,1 @@
+export const  NEXT_PUBLIC_API_KEY ='CKFRQC4GPZQUB56W'; 
