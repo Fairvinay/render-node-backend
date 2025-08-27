@@ -10,7 +10,7 @@ const dev = process.env.NODE_ENV !== "production";
   const port = process.env.PORT || 3003; //10000;
 //  const hostname = "0.0.0.0"; // use 0.0.0.0 for hosting, localhost for local dev
 
-const app = next({ dev });
+const app = next({ dev: false });
 const handle = app.getRequestHandler();
 let  parsedUrl = '';
 /*const httpsOptions = {
