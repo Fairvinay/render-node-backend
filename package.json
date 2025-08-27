@@ -10,6 +10,7 @@
   "startold": "next start  -H 192.168.1.4 -p 3000 / node src/server.js",
   "olddev": " next dev --ssl-cert ./ssl.crt/server.crt --ssl-key ./ssl.key/server.key",
   "scripts": {
+     "build": "next build",
     "dev": "nodemon src/server.js",
 		"start": "node src/server.js"
   },
